@@ -56,3 +56,6 @@ $ npm run test:cov
  - Portable
  - Loosely Coupled
 
+#### Database configure with ORM
+- npm i @nestjs/typeorm typeorm pg
+- 
