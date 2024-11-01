@@ -40,4 +40,14 @@ $ npm run test:cov
  - nest g s
 - generate module
  - nest g module coffees
+- generate dto
+ - nest g class coffees/dto/create-coffee.dto --no-spec
+  - --no-spec: no neeed to be any test file for this
+- for validaiton package
+ - npm i class-validator class-transformer
+- mapped types install
+ - npm i @nestjs/mapped-types
 - 
+- 
+
+

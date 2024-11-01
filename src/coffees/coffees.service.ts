@@ -34,7 +34,9 @@ export class CoffeesService {
 
   // create coffee
   create(createCoffeeDto: any) {
+    
     this.coffees.push(createCoffeeDto);
+    return createCoffeeDto;
   }
 
   // update coffee

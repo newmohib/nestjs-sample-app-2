@@ -12,20 +12,22 @@ import {
   Res,
 } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
+import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
+import { UpdateCoffeeDto } from './dto/update-coffee.dto/update-coffee.dto';
 
 @Controller('coffees')
 export class CoffeesController {
-    constructor(private readonly coffeesService: CoffeesService) {}
+  constructor(private readonly coffeesService: CoffeesService) {}
 
-//   @Get()
-//   getAll(@Res() response) {
-//     response.status(HttpStatus.OK).send('This action returns all coffees');
-//     //return 'This action returns all coffees';
-//   }
+  //   @Get()
+  //   getAll(@Res() response) {
+  //     response.status(HttpStatus.OK).send('This action returns all coffees');
+  //     //return 'This action returns all coffees';
+  //   }
 
-@Get()
+  @Get()
   getAll(@Query() paginationQuery) {
-    const {limit, offset}= paginationQuery;
+    const { limit, offset } = paginationQuery;
     // return `This action returns all coffees. Limit: ${limit}, Offset: ${offset}`;
     return this.coffeesService.findAll();
   }
@@ -38,22 +40,26 @@ export class CoffeesController {
 
   @Post()
   @HttpCode(HttpStatus.OK)
-  create(@Body() body) {
+  create(@Body() createCoffeeDto: CreateCoffeeDto) {
     // return body;
-    return this.coffeesService.create(body);
+    // it will console true due to class validation transformation
+    console.log(createCoffeeDto instanceof CreateCoffeeDto);
+    
+    console.log({ createCoffeeDto });
+
+    return this.coffeesService.create(createCoffeeDto);
   }
 
-// Patch is used for partial updates
+  // Patch is used for partial updates
   @Patch(':id')
-  update(@Param('id') id:string, @Body() body) {
+  update(@Param('id') id: string, @Body() updateCoffeDto: UpdateCoffeeDto) {
     // return `This action updates #${id}`;
-    return this.coffeesService.update(id, body);
+    return this.coffeesService.update(id, updateCoffeDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id:string) {
+  remove(@Param('id') id: string) {
     // return `This action removes #${id}`;
     return this.coffeesService.remove(id);
   }
-   
 }
