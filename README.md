@@ -38,4 +38,6 @@ $ npm run test:cov
  - nest generate controller modules/abc --dry-run
 - generate service
  - nest g s
+- generate module
+ - nest g module coffees
 - 
