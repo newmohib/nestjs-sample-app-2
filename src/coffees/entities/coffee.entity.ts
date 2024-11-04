@@ -20,8 +20,10 @@ export class Coffee {
 
   @JoinTable()
   // many to many relation
-  @ManyToMany(() => Flavor, (flavor) => flavor.coffees)
-  flavors: string[];
+  @ManyToMany(() => Flavor, (flavor) => flavor.coffees, {
+    cascade: true, // insert/update/delete
+  })
+  flavors: Flavor[];
 
   //   @Column('json', { nullable: true })
 }
