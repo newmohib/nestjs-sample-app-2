@@ -14,6 +14,10 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
       // transform the dto to plain object and field data type
       transform: true,
+      // When enableImplicitConversion is set to true, it enables implicit type conversion for properties in your DTOs. This means that NestJS will try to automatically convert incoming values to the types defined in your DTO without requiring explicit conversion logic in your code.
+      transformOptions: {
+        enableImplicitConversion: true, // this will convert string to number or vse
+      },
     }),
   );
 
