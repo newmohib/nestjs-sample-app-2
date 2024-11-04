@@ -59,3 +59,7 @@ $ npm run test:cov
 #### Database configure with ORM
 - npm i @nestjs/typeorm typeorm pg
 - 
+
+#### generate event for transection query
+- nest g class events/entities/event.entity --no-spec
+
